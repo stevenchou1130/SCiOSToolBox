@@ -1,19 +1,23 @@
 ## Step 1
 
-Go to Script folder
+Push changed files to repo
 
 ## Step 2
 
-Run UpdateTag.sh
+Go to Script folder
 
 ## Step 3
 
-pod trunk delete SCiOSToolbox 0.0.1
+Run UpdateTag.sh
 
 ## Step 4
 
-pod trunk push SCiOSToolbox.podspec
+pod trunk delete SCiOSToolbox 0.0.1
 
 ## Step 5
+
+pod trunk push SCiOSToolbox.podspec
+
+## Step 6
 
 Project update pods (pod update)
