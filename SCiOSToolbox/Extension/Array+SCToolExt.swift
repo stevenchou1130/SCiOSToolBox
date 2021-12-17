@@ -7,22 +7,22 @@
 
 import Foundation
 
-extension Array {
+public extension Array {
 
-    public var withoutFirstElement: Array {
+    var withoutFirstElement: Array {
         return Array(self.dropFirst())
     }
 
-    public mutating func rearrange(from: Int, to: Int) {
+    mutating func rearrange(from: Int, to: Int) {
         if from == to { return }
         precondition(from != to && indices.contains(from) && indices.contains(to), "invalid indexes")
         insert(remove(at: from), at: to)
     }
 }
 
-extension Array {
+public extension Array {
 
-    public func toJSON() -> String? {
+    func toJSON() -> String? {
         if let jsonData = try? JSONSerialization.data(withJSONObject: self, options: []) {
             return String(bytes: jsonData, encoding: .utf8)
         }
@@ -31,7 +31,7 @@ extension Array {
     }
 }
 
-extension Array where Element: Hashable {
+public extension Array where Element: Hashable {
 
     // Usage
     /*
@@ -39,7 +39,7 @@ extension Array where Element: Hashable {
      * let names2 = ["Ringo", "Paul", "George"]
      * let difference = names1.difference(from: names2)    // ["George", "John"]
      */
-    public func difference(from other: [Element]) -> [Element] {
+    func difference(from other: [Element]) -> [Element] {
         let thisSet = Set(self)
         let otherSet = Set(other)
         return Array(thisSet.symmetricDifference(otherSet))
@@ -51,7 +51,7 @@ extension Array where Element: Hashable {
      * let names2 = ["Ringo", "Paul", "George"]
      * let same = names1.same(from: names2)    // ["Paul"]
      */
-    public func same(with other: [Element]) -> [Element] {
+    func same(with other: [Element]) -> [Element] {
         let result = self.filter () { other.contains($0) }
         return Array(result)
     }
