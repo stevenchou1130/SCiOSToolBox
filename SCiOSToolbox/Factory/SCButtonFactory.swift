@@ -24,9 +24,9 @@ import UIKit
 }
 
 // MARK: - Public
-extension SCButtonFactory {
+public extension SCButtonFactory {
  
-    public class func createButton(with title: String) -> UIButton {
+    class func createButton(with title: String) -> UIButton {
         let btn = UIButton(type: .custom)
         btn.setTitle(title, for: .normal)
         btn.setTitleColor(.black, for: .normal)
@@ -35,6 +35,6 @@ extension SCButtonFactory {
 }
 
 // MARK: - Private
-extension SCButtonFactory {
+public extension SCButtonFactory {
     
 }
